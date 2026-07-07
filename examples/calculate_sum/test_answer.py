@@ -10,22 +10,8 @@ Or run from the repository root with:
 import sys
 import unittest
 from io import StringIO
-import importlib.util
-from pathlib import Path
 
-
-def load_answer_module():
-    module_path = Path(__file__).with_name("answer.py")
-    spec = importlib.util.spec_from_file_location(
-        f"{Path(__file__).parent.name}_answer",
-        module_path,
-    )
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-answer = load_answer_module()
+import answer
 
 
 class RedirectedStdout:

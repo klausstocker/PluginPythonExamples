@@ -82,13 +82,6 @@ python -m unittest discover -s examples/calculate_sum -p "test_*.py"
 ```bash
 python -m unittest discover -s examples/minimum_bmi -p "test_*.py"
 ```
-
-Run all examples at once:
-
-```bash
-python -m unittest discover -s examples -p "test_*.py"
-```
-
 You can also run an example from inside its folder:
 
 ```bash
