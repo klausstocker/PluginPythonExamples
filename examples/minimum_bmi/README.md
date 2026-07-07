@@ -2,9 +2,15 @@
 
 This folder is a self-contained development workspace for a Python plugin example.
 
-The task is to write a function that receives a list of tuples in the form
-`(name, weight, height)` and returns the name of the person with the minimum BMI.
-BMI is calculated as `weight / height**2`.
+## Learning goal
+
+Learners practice iterating through structured data, calculating a comparison value, and returning the matching item.
+
+## Task
+
+Write a function named `person_with_minimum_bmi` that receives a list of tuples in the form `(name, weight, height)` and returns the name of the person with the minimum BMI. BMI is calculated as `weight / height**2`.
+
+## Files
 
 - `answer.py` contains an example list of tuples and the solution implementation.
 - `test_answer.py` contains unit tests for `answer.py` using Python's built-in `unittest` framework.

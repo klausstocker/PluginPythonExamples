@@ -2,6 +2,16 @@
 
 This folder is a self-contained development workspace for a Python plugin example.
 
+## Learning goal
+
+Learners practice writing a simple function that returns a value and prints feedback for the user.
+
+## Task
+
+Write a function named `calculate_sum` that receives two values, prints `the sum is <total>`, and returns the total.
+
+## Files
+
 - `answer.py` contains the solution implementation.
 - `test_answer.py` contains unit tests for `answer.py` using Python's built-in `unittest` framework.
 
