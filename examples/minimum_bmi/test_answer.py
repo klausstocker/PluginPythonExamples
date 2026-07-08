@@ -9,7 +9,7 @@ Or run from the repository root with:
 
 import unittest
 
-from examples.minimum_bmi import answer
+import answer
 
 
 def correct_implementation(people):

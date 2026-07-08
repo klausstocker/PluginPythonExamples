@@ -37,7 +37,7 @@ Each example should usually contain:
 - `answer.py` — contains the reference or example implementation.
 - `test_answer.py` — contains tests for the example using Python's built-in `unittest` framework.
 
-The examples are designed so that each one can be run with a single Python command from the repository root. The repository also includes VS Code settings so the Python extension can discover and run all example tests from the Testing view.
+The examples are designed so each folder can be copied or run on its own with the original `import answer` pattern. The repository also includes a small all-example runner and VS Code settings so the Python extension can run every example test from the Testing view without changing those standalone imports.
 
 ## Set up a virtual environment
 
@@ -86,15 +86,17 @@ python -m unittest discover -s examples/minimum_bmi -p "test_*.py"
 Run all examples at once from the repository root:
 
 ```bash
-python -m unittest discover -s examples -p "test_*.py"
+python -m unittest test_all_examples.py
 ```
+
+The all-example runner starts a separate Python process in each example folder so every `test_answer.py` can keep using `import answer`.
 
 ## Visual Studio Code
 
-This repository includes `.vscode/settings.json` for the VS Code Python extension. Open the repository root in VS Code, select the virtual environment interpreter if you created one, and use the **Testing** view to discover, run, or debug all example tests. The configured unittest discovery command is equivalent to:
+This repository includes `.vscode/settings.json` for the VS Code Python extension. Open the repository root in VS Code, select the virtual environment interpreter if you created one, and use the **Testing** view to discover, run, or debug the repository-level `test_all_examples.py` test. That test runs all example folders while preserving their standalone `import answer` imports. The configured unittest discovery command is equivalent to:
 
 ```bash
-python -m unittest discover -s examples -p "test_*.py"
+python -m unittest discover -s . -p "test_all_examples.py"
 ```
 
 ## Create a new example from the template

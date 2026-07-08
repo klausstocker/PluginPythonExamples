@@ -4,8 +4,8 @@
   "python.testing.unittestArgs": [
     "discover",
     "-s",
-    "examples",
+    ".",
     "-p",
-    "test_*.py"
+    "test_all_examples.py"
   ]
 }

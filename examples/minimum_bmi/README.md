@@ -26,4 +26,4 @@ python -m unittest discover -s examples/minimum_bmi -p "test_*.py"
 
 ## Visual Studio Code
 
-Use the repository-level VS Code settings to discover and run this example together with the other examples from the **Testing** view.
+Use the repository-level VS Code settings to run this example together with the other examples from the **Testing** view. The VS Code test runs through `test_all_examples.py`, so this example can keep using the standalone `import answer` pattern.
