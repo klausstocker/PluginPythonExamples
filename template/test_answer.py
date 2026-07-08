@@ -1,15 +1,14 @@
 """Unit test template for a new plugin example.
 
-Run from this directory with:
-    python -m unittest test_answer.py
-
-Or run from the repository root after copying this folder into examples/ with:
+After copying this folder into examples/example_name, run from the repository root with:
     python -m unittest discover -s examples/example_name -p "test_*.py"
+
+Before running, replace `examples.example_name` below with your real example package path.
 """
 
 import unittest
 
-import answer
+from examples.example_name import answer
 
 
 class Checker(unittest.TestCase):  # do not rename; plugin checks expect this name

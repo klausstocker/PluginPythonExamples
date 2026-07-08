@@ -11,7 +11,7 @@ import sys
 import unittest
 from io import StringIO
 
-import answer
+from examples.calculate_sum import answer
 
 
 class RedirectedStdout:

@@ -19,21 +19,20 @@ Change this task statement to match your real classroom activity.
 
 ## Run the tests
 
-From this directory:
-
-```bash
-python -m unittest test_answer.py
-```
-
 From the repository root, after copying this folder into `examples/example_name`:
 
 ```bash
 python -m unittest discover -s examples/example_name -p "test_*.py"
 ```
 
+## Visual Studio Code
+
+After copying this folder into `examples/`, the repository-level VS Code settings can discover and run the new example from the **Testing** view.
+
 ## Adapting this template
 
 1. Rename the folder.
-2. Rename `example_function` in both Python files.
-3. Replace the task statement and learning goal above.
-4. Update the test data so it checks the skill you want students to practice.
+2. Replace `examples.example_name` in `test_answer.py` with the copied folder path, such as `examples.calculate_average`.
+3. Rename `example_function` in both Python files.
+4. Replace the task statement and learning goal above.
+5. Update the test data so it checks the skill you want students to practice.

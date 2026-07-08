@@ -17,12 +17,6 @@ Write a function named `calculate_sum` that receives two values, prints `the sum
 
 ## Run the tests
 
-From this directory:
-
-```bash
-python -m unittest test_answer.py
-```
-
 From the repository root:
 
 ```bash
@@ -31,8 +25,4 @@ python -m unittest discover -s examples/calculate_sum -p "test_*.py"
 
 ## Visual Studio Code
 
-Use the Python extension's **Testing** view and configure unittest discovery with:
-
-- Framework: `unittest`
-- Start directory: `examples/calculate_sum`
-- Pattern: `test_*.py`
+Use the repository-level VS Code settings to discover and run this example together with the other examples from the **Testing** view.
