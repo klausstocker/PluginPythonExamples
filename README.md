@@ -11,7 +11,11 @@ This repository contains teacher-facing Python examples for a Python plugin work
 │   │   ├── README.md
 │   │   ├── answer.py
 │   │   └── test_answer.py
-│   └── minimum_bmi/
+│   ├── minimum_bmi/
+│   │   ├── README.md
+│   │   ├── answer.py
+│   │   └── test_answer.py
+│   └── series_resistors_voltage/
 │       ├── README.md
 │       ├── answer.py
 │       └── test_answer.py
@@ -81,6 +85,10 @@ python -m unittest discover -s examples/calculate_sum -p "test_*.py"
 
 ```bash
 python -m unittest discover -s examples/minimum_bmi -p "test_*.py"
+```
+
+```bash
+python -m unittest discover -s examples/series_resistors_voltage -p "test_*.py"
 ```
 
 Run all examples at once from the repository root:
