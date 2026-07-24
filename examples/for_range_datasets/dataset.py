@@ -1,11 +1,10 @@
-from dataclasses import asdict, dataclass
-from typing import Any, Optional
+import sys
+from pathlib import Path
 
-@dataclass(frozen=True)
-class DatasetVariable:
-    name: str
-    value: Any = None
-    unit: Optional[str] = None
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from common import DatasetVariable
+
 
 a = DatasetVariable('a', 4)
 n = DatasetVariable('n', 3)
