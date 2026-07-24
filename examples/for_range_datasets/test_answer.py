@@ -8,38 +8,41 @@ Or run from the repository root with:
 """
 
 import unittest
+import dataset
+import sys
+from io import StringIO
 
-import answer
+class RedirectedStdout:
+    """Capture stdout so examples can test printed output with unittest."""
 
+    def __init__(self):
+        self._stdout = None
+        self._string_io = None
 
-def correct_implementation(datasets):
-    """Expected behavior for collect_numbers_from_ranges."""
-    all_numbers = []
+    def __enter__(self):
+        self._stdout = sys.stdout
+        sys.stdout = self._string_io = StringIO()
+        return self
 
-    for start, stop in datasets:
-        for number in range(start, stop):
-            all_numbers.append(number)
+    def __exit__(self, exc_type, exc_value, traceback):
+        sys.stdout = self._stdout
 
-    return all_numbers
+    def __str__(self):
+        return self._string_io.getvalue()
 
+def correct_implementation():
+    a = int(dataset.a.value)
+    n = int(dataset.n.value)
+    for i in range(a, a + n + 1):
+        print(i)
 
 class Checker(unittest.TestCase):  # do not rename; plugin checks expect this name
-    def test_uses_start_and_stop_values_from_datasets(self):
-        datasets = [(2, 6), (10, 13)]
-        student_result = answer.collect_numbers_from_ranges(datasets)
-        expected_result = correct_implementation(datasets)
-        self.assertEqual(student_result, expected_result)
-
-    def test_stop_value_is_not_included(self):
-        datasets = [(4, 8)]
-        student_result = answer.collect_numbers_from_ranges(datasets)
-        self.assertEqual(student_result, [4, 5, 6, 7])
-        self.assertNotIn(8, student_result, "range(start, stop) stops before stop")
-
-    def test_empty_range_returns_no_numbers(self):
-        datasets = [(5, 5), (8, 6)]
-        student_result = answer.collect_numbers_from_ranges(datasets)
-        self.assertEqual(student_result, [])
+    def test_output(self):
+        with RedirectedStdout() as student_out:
+            import answer
+        with RedirectedStdout() as expected_out:
+            correct_implementation()
+        self.assertEqual(str(student_out), str(expected_out))
 
 
 if __name__ == "__main__":
