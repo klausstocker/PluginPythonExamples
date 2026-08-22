@@ -11,6 +11,9 @@ Write `celsius_to_fahrenheit(temperature_celsius)`. Use the formula
 `fahrenheit = celsius * 9 / 5 + 32`, store the result in
 `temperature_fahrenheit`, and return it.
 
+Write `fahrenheit_to_celsius(fahrenheit)`. Store the result in
+`temperature_fahrenheit`, and return it.
+
 ## Files
 
 - `answer.py` contains a demonstration and the reference implementation.
