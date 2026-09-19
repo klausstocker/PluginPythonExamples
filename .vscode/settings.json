@@ -7,5 +7,9 @@
     ".",
     "-p",
     "test_all_examples.py"
-  ]
+  ],
+  "[python]": {
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "editor.formatOnSave": true
+  }
 }
