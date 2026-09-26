@@ -45,7 +45,7 @@ The examples are designed so each folder can be copied or run on its own with th
 
 ## Set up a virtual environment
 
-The examples currently use only the Python standard library, but a virtual environment gives every user a clean, repeatable place to install requirements if dependencies are added later.
+Most examples use only the Python standard library. The [3D vector angle example](examples/vector_angle_3d/README.md) uses NumPy for typed arrays, dot products, and vector lengths. Use a virtual environment to install the requirements.
 
 From the repository root, run:
 
