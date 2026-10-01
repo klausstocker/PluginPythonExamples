@@ -17,11 +17,10 @@ EXAMPLES_ROOT = REPOSITORY_ROOT / "examples"
 
 
 def example_directories():
-    """Return example folders that contain a unittest file."""
+    """Find example folders in every chapter by their unittest file."""
     return sorted(
-        example_path
-        for example_path in EXAMPLES_ROOT.iterdir()
-        if example_path.is_dir() and (example_path / "test_answer.py").exists()
+        test_path.parent
+        for test_path in EXAMPLES_ROOT.glob("*/*/test_answer.py")
     )
 
 
@@ -29,8 +28,10 @@ class ExampleTestSuites(unittest.TestCase):
     """Run each self-contained example test suite."""
 
     def test_examples_can_run_standalone(self):
-        for example_path in example_directories():
-            with self.subTest(example=example_path.name):
+        directories = example_directories()
+        self.assertTrue(directories, "No example test suites found in the chapters")
+        for example_path in directories:
+            with self.subTest(example=str(example_path.relative_to(EXAMPLES_ROOT))):
                 completed_process = subprocess.run(
                     [sys.executable, "-m", "unittest", "test_answer.py"],
                     cwd=example_path,

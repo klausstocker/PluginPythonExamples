@@ -1,7 +1,7 @@
 """Unit test template for a new plugin example.
 
-After copying this folder into examples/example_name, run from the repository root with:
-    python -m unittest discover -s examples/example_name -p "test_*.py"
+After copying this folder into examples/<chapter>/example_name, run from the repository root with:
+    python -m unittest discover -s examples/<chapter>/example_name -p "test_*.py"
 
 """
 

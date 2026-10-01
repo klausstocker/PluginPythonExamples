@@ -82,3 +82,14 @@ Keep examples self-contained, readable, and easy for teachers and students to co
 This branch is intended for implementing the practical examples for the variables module. The teaching-script content itself is currently maintained primarily in the web chat and lives on `main` under `script/`.
 
 When examples are ready, they can later be linked from both language versions of the variables chapter.
+
+## Example chapters
+
+Examples are grouped under `examples/<chapter>/<example>/`:
+
+- `01_variables_and_calculations`
+- `02_logic_and_conditions`
+- `03_loops_and_data`
+
+Each chapter README lists the recommended order. Run all suites with
+`python -m unittest test_all_examples.py`; the runner discovers examples inside chapters.

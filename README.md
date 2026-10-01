@@ -6,29 +6,43 @@ This repository contains teacher-facing Python examples for a Python plugin work
 
 ```text
 .
-├── examples/
-│   ├── calculate_sum/
-│   │   ├── README.md
-│   │   ├── answer.py
-│   │   └── test_answer.py
-│   ├── for_range_datasets/
-│   │   ├── README.md
-│   │   ├── answer.py
-│   │   └── test_answer.py
-│   └── minimum_bmi/
-│       ├── README.md
-│       ├── answer.py
-│       └── test_answer.py
-├── template/
-│   ├── README.md
-│   ├── answer.py
-│   └── test_answer.py
-├── agents.md
-├── README.md
-└── requirements.txt
+??? examples/
+?   ??? 01_variables_and_calculations/
+?   ?   ??? README.md
+?   ?   ??? calculate_sum/
+?   ?   ??? electrical_power/
+?   ?   ??? temperature_conversion/
+?   ?   ??? motor_energy/
+?   ?   ??? robot_movement_2d/
+?   ?   ??? vector_angle_3d/
+?   ??? 02_logic_and_conditions/
+?   ?   ??? README.md
+?   ?   ??? logical_and/
+?   ?   ??? logical_or/
+?   ?   ??? logical_not/
+?   ?   ??? if_temperature_warning/
+?   ?   ??? if_else_fan_control/
+?   ?   ??? if_elif_battery_status/
+?   ?   ??? radians_to_degrees/
+?   ??? 03_loops_and_data/
+?       ??? README.md
+?       ??? for_range_datasets/
+?       ??? count_pointing_at_zero/
+?       ??? minimum_bmi/
+?       ??? minimal_distance/
+?       ??? power_from_csv/
+??? template/
+??? test_all_examples.py
+??? agents.md
+??? README.md
+??? requirements.txt
 ```
 
-- `examples/` contains ready-to-run example folders.
+- `examples/` contains three chapters with ready-to-run example folders.
+  Start with [variables and calculations](examples/01_variables_and_calculations/README.md),
+  continue with [logic and conditions](examples/02_logic_and_conditions/README.md),
+  then [loops and data](examples/03_loops_and_data/README.md).
+- `examples/common.py` contains shared helpers used by some existing examples.
 - `template/` contains a simple starting point for creating a new example.
 - `requirements.txt` lists Python packages needed to run the examples in a virtual environment.
 - `agents.md` documents repository conventions for future contributors.
@@ -45,7 +59,7 @@ The examples are designed so each folder can be copied or run on its own with th
 
 ## Set up a virtual environment
 
-Most examples use only the Python standard library. The [3D vector angle example](examples/vector_angle_3d/README.md) uses NumPy for typed arrays, dot products, and vector lengths. Use a virtual environment to install the requirements.
+Most examples use only the Python standard library. The [3D vector angle example](examples/01_variables_and_calculations/vector_angle_3d/README.md) uses NumPy for typed arrays, dot products, and vector lengths. Use a virtual environment to install the requirements.
 
 From the repository root, run:
 
@@ -83,44 +97,44 @@ Three introductory condition examples build on each other:
 
 | Example | Focus | Test command |
 | --- | --- | --- |
-| [Temperature warning](examples/if_temperature_warning/README.md) | `if` and a default value | `python -m unittest discover -s examples/if_temperature_warning -p "test_*.py"` |
-| [Fan control](examples/if_else_fan_control/README.md) | `if/else` | `python -m unittest discover -s examples/if_else_fan_control -p "test_*.py"` |
-| [Battery status](examples/if_elif_battery_status/README.md) | `if/elif/else` | `python -m unittest discover -s examples/if_elif_battery_status -p "test_*.py"` |
+| [Temperature warning](examples/02_logic_and_conditions/if_temperature_warning/README.md) | `if` and a default value | `python -m unittest discover -s examples/02_logic_and_conditions/if_temperature_warning -p "test_*.py"` |
+| [Fan control](examples/02_logic_and_conditions/if_else_fan_control/README.md) | `if/else` | `python -m unittest discover -s examples/02_logic_and_conditions/if_else_fan_control -p "test_*.py"` |
+| [Battery status](examples/02_logic_and_conditions/if_elif_battery_status/README.md) | `if/elif/else` | `python -m unittest discover -s examples/02_logic_and_conditions/if_elif_battery_status -p "test_*.py"` |
 
 Each includes German teaching notes, a runnable reference solution, and tests
 for branch decisions and threshold values.
 
-The [Count dial stops at zero example](examples/count_pointing_at_zero/README.md)
+The [Count dial stops at zero example](examples/03_loops_and_data/count_pointing_at_zero/README.md)
 practices loops, string parsing, and modulo arithmetic:
 
 ```bash
-python -m unittest discover -s examples/count_pointing_at_zero -p "test_*.py"
+python -m unittest discover -s examples/03_loops_and_data/count_pointing_at_zero -p "test_*.py"
 ```
 
 ```bash
-python -m unittest discover -s examples/calculate_sum -p "test_*.py"
+python -m unittest discover -s examples/01_variables_and_calculations/calculate_sum -p "test_*.py"
 ```
 
 ```bash
-python -m unittest discover -s examples/minimum_bmi -p "test_*.py"
+python -m unittest discover -s examples/03_loops_and_data/minimum_bmi -p "test_*.py"
 ```
 
 ```bash
-python -m unittest discover -s examples/for_range_datasets -p "test_*.py"
+python -m unittest discover -s examples/03_loops_and_data/for_range_datasets -p "test_*.py"
 ```
 
-The [Minimal distance example](examples/minimal_distance/README.md) practices
+The [Minimal distance example](examples/03_loops_and_data/minimal_distance/README.md) practices
 pairwise comparisons and Euclidean distance:
 
 ```bash
-python -m unittest discover -s examples/minimal_distance -p "test_*.py"
+python -m unittest discover -s examples/03_loops_and_data/minimal_distance -p "test_*.py"
 ```
 
-The [Radians to degrees example](examples/radians_to_degrees/README.md) covers
+The [Radians to degrees example](examples/02_logic_and_conditions/radians_to_degrees/README.md) covers
 degrees, minutes, seconds, and quadrant assignment:
 
 ```bash
-python -m unittest discover -s examples/radians_to_degrees -p "test_*.py"
+python -m unittest discover -s examples/02_logic_and_conditions/radians_to_degrees -p "test_*.py"
 ```
 
 Run all examples at once from the repository root:
@@ -129,7 +143,7 @@ Run all examples at once from the repository root:
 python -m unittest test_all_examples.py
 ```
 
-The all-example runner starts a separate Python process in each example folder so every `test_answer.py` can keep using `import answer`.
+The all-example runner discovers `examples/<chapter>/<example>/test_answer.py` and starts a separate Python process in each example folder so every `test_answer.py` can keep using `import answer`.
 
 ## Visual Studio Code
 
@@ -141,12 +155,12 @@ python -m unittest discover -s . -p "test_all_examples.py"
 
 ## Create a new example from the template
 
-1. Copy the `template/` folder into `examples/` and rename it for your task.
+1. Copy the `template/` folder into the appropriate chapter under `examples/` and rename it for your task. Add a link to the chapter README.
 2. Edit the copied `README.md` to describe the learning goal, task, files, and test command.
 3. Replace the placeholder function in `answer.py` with your reference implementation.
 4. Update `test_answer.py` so the tests check the intended learning outcome.
 5. Run the new example with one Python command, for example:
 
 ```bash
-python -m unittest discover -s examples/my_new_example -p "test_*.py"
+python -m unittest discover -s examples/01_variables_and_calculations/my_new_example -p "test_*.py"
 ```

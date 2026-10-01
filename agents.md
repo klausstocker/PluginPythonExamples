@@ -11,7 +11,7 @@ This repository contains teacher-facing Python plugin examples. The examples are
 
 ## Expected example structure
 
-Each example should live in its own folder below `examples/` and should usually contain:
+Each example should live in its own folder below `examples/<chapter>/` and should usually contain:
 
 - `README.md` — explains the task, learning goal, files, and how to run the tests.
 - `answer.py` — contains the reference or example implementation.
@@ -39,7 +39,7 @@ python -m unittest test_answer.py
 from inside an example folder, or:
 
 ```bash
-python -m unittest discover -s examples/<example_name> -p "test_*.py"
+python -m unittest discover -s examples/<chapter>/<example_name> -p "test_*.py"
 ```
 
 from the repository root.
@@ -47,7 +47,7 @@ from the repository root.
 If you change shared setup files such as `requirements.txt` or repository-level documentation, also run all available example tests when practical:
 
 ```bash
-python -m unittest discover -s examples -p "test_*.py"
+python -m unittest test_all_examples.py
 ```
 
 ## Documentation expectations
