@@ -79,6 +79,24 @@ deactivate
 
 Run each example with one Python call from the repository root:
 
+Three introductory condition examples build on each other:
+
+| Example | Focus | Test command |
+| --- | --- | --- |
+| [Temperature warning](examples/if_temperature_warning/README.md) | `if` and a default value | `python -m unittest discover -s examples/if_temperature_warning -p "test_*.py"` |
+| [Fan control](examples/if_else_fan_control/README.md) | `if/else` | `python -m unittest discover -s examples/if_else_fan_control -p "test_*.py"` |
+| [Battery status](examples/if_elif_battery_status/README.md) | `if/elif/else` | `python -m unittest discover -s examples/if_elif_battery_status -p "test_*.py"` |
+
+Each includes German teaching notes, a runnable reference solution, and tests
+for branch decisions and threshold values.
+
+The [Count dial stops at zero example](examples/count_pointing_at_zero/README.md)
+practices loops, string parsing, and modulo arithmetic:
+
+```bash
+python -m unittest discover -s examples/count_pointing_at_zero -p "test_*.py"
+```
+
 ```bash
 python -m unittest discover -s examples/calculate_sum -p "test_*.py"
 ```
@@ -89,6 +107,20 @@ python -m unittest discover -s examples/minimum_bmi -p "test_*.py"
 
 ```bash
 python -m unittest discover -s examples/for_range_datasets -p "test_*.py"
+```
+
+The [Minimal distance example](examples/minimal_distance/README.md) practices
+pairwise comparisons and Euclidean distance:
+
+```bash
+python -m unittest discover -s examples/minimal_distance -p "test_*.py"
+```
+
+The [Radians to degrees example](examples/radians_to_degrees/README.md) covers
+degrees, minutes, seconds, and quadrant assignment:
+
+```bash
+python -m unittest discover -s examples/radians_to_degrees -p "test_*.py"
 ```
 
 Run all examples at once from the repository root:
