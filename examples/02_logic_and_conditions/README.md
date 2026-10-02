@@ -30,3 +30,13 @@ Each example README gives its task and test command. Run all chapters with
 
 Previous: [Variables and calculations](../01_variables_and_calculations/README.md).
 Next: [Loops and data](../03_loops_and_data/README.md).
+
+## Boolean expressions before functions
+
+These three examples use only variables and expressions in `answer.py`; learners
+do not need to define functions or use branches or loops. Start here when following
+the script, which introduces Boolean operators before functions.
+
+- [Spannung im erlaubten Bereich](voltage_range/README.md): Vergleiche und `and` ohne eigene Funktionen verwenden.
+- [Genau eine Betriebsart gewählt](exclusive_operating_mode/README.md): Bei booleschen Werten XOR mit `!=` ausdrücken und mit `or` vergleichen.
+- [Startfreigabe einer simulierten Anlage](machine_start_permission/README.md): `and`, `or` und `not` mit klaren Klammern kombinieren.
