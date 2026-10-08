@@ -38,10 +38,13 @@ This repository contains teacher-facing Python examples for a Python plugin work
 ??? requirements.txt
 ```
 
-- `examples/` contains four chapters with ready-to-run example folders.
+- `examples/` contains six chapters with ready-to-run example folders.
   Start with [variables and calculations](examples/01_variables_and_calculations/README.md),
   continue with [logic and conditions](examples/02_logic_and_conditions/README.md),
-  then [loops and data](examples/03_loops_and_data/README.md).
+  then [loops and data](examples/03_loops_and_data/README.md),
+  [functions](examples/04_functions/README.md), and
+  [dataclasses](examples/05_dataclasses/README.md), and
+  [robotics](examples/06_robotics/README.md).
 - `examples/common.py` contains shared helpers used by some existing examples.
 - `template/` contains a simple starting point for creating a new example.
 - `requirements.txt` lists Python packages needed to run the examples in a virtual environment.
@@ -169,6 +172,11 @@ python -m unittest discover -s examples/01_variables_and_calculations/my_new_exa
 
 Three [Boolean expression examples](examples/02_logic_and_conditions/README.md#boolean-expressions-before-functions)
 use variables and expressions without defining functions.
-Five [function examples](examples/04_functions/README.md) cover definitions,
-return values, type hints, default parameters, and combining functions.
-All calls in those function examples use positional arguments.
+Nine [function examples](examples/04_functions/README.md) cover definitions,
+return values, type hints, default parameters, combining functions, trigonometry,
+printing Pascal's triangle to stdout, finding primes with a helper function,
+and implementing all 16 Boolean functions with two inputs.
+The [dataclasses chapter](examples/05_dataclasses/README.md) introduces data objects
+through a self-contained order checking example.
+The [tower height example](examples/04_functions/tower_height/README.md) uses
+the tangent ratio and includes named arguments as an optional extension.

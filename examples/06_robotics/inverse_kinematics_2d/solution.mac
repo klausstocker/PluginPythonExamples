@@ -1,0 +1,38 @@
+﻿/* Inverse Kinematik: direkte Rechnung ohne Funktionsdefinitionen.
+   Gegeben: r = Abstand in mm, gamma = Zielrichtung im Bogenmass.
+   Ein erreichbarer Zielpunkt wird vorausgesetzt.
+
+   Falls stattdessen x und y gegeben sind, vorher ausfuehren:
+   r: sqrt(x^2 + y^2)$
+   gamma: atan2(y, x)$
+
+   Danach: batch("solution.mac");
+*/
+
+arm_1: 100.0$
+arm_2: 80.0$
+
+/* 1. Innenwinkel am Gelenk aus dem Kosinussatz.
+   gamma ist die Zielrichtung, nicht der Innenwinkel am Gelenk.
+*/
+cos_innen: (arm_1^2 + arm_2^2 - r^2)/(2*arm_1*arm_2)$
+/* Rundungsfehler an den Grenzen abfangen. */
+cos_innen: max(-1.0, min(1.0, cos_innen))$
+innenwinkel: acos(cos_innen)$
+
+/* 2. Relativer Gelenkwinkel: Ergaenzung zum gestreckten Winkel.
+   Gewaehlt wird die Loesung mit 0 <= beta_rad <= %pi.
+*/
+beta_rad: %pi - innenwinkel$
+
+/* 3. Innenwinkel an der Basis aus dem Kosinussatz. */
+cos_delta: (arm_1^2 + r^2 - arm_2^2)/(2*arm_1*r)$
+cos_delta: max(-1.0, min(1.0, cos_delta))$
+delta: acos(cos_delta)$
+
+/* 4. Die Zielrichtung setzt sich aus alpha_rad und delta zusammen. */
+alpha_rad: gamma - delta$
+
+/* 5. Ergebnis in Grad anzeigen. */
+alpha: float(alpha_rad*180/%pi);
+beta: float(beta_rad*180/%pi);

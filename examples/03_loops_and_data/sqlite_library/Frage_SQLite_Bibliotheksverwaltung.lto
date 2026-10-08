@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>0</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[SQLite: Bibliotheksverwaltung (n:m)]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima></maxima>
+   <maximaAngabe></maximaAngabe>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>25</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables": [], "validation": "\"\"\"Tests mit eigenen Bibliotheksdaten.\"\"\"\n\nimport sqlite3\nimport unittest\n\nimport answer\n\n\ndef create_database() -> sqlite3.Connection:\n    \"\"\"Erstelle eine leere Datenbank im Arbeitsspeicher.\"\"\"\n    connection = sqlite3.connect(\":memory:\")\n    connection.execute(\"PRAGMA foreign_keys = ON\")\n    connection.executescript(\"\"\"\n        CREATE TABLE books (\n            id INTEGER PRIMARY KEY,\n            title TEXT NOT NULL\n        );\n        CREATE TABLE customers (\n            id INTEGER PRIMARY KEY,\n            name TEXT NOT NULL\n        );\n        CREATE TABLE lends (\n            id INTEGER PRIMARY KEY,\n            book_id INTEGER NOT NULL REFERENCES books(id),\n            customer_id INTEGER NOT NULL REFERENCES customers(id),\n            lend_date TEXT NOT NULL\n        );\n    \"\"\")\n    return connection\n\n\n\nclass Checker(unittest.TestCase):\n    def setUp(self):\n        self.connection = create_database()\n        self.addCleanup(self.connection.close)\n        with self.connection:\n            self.connection.executemany(\n                \"INSERT INTO books (id, title) VALUES (?, ?)\",\n                [(10, \"SQL entdecken\"), (20, \"SQL entdecken\"), (30, \"Mathematik\")],\n            )\n            self.connection.executemany(\n                \"INSERT INTO customers (id, name) VALUES (?, ?)\",\n                [(5, \"Clara\"), (6, \"David\"), (7, \"Clara\")],\n            )\n            self.connection.executemany(\n                \"INSERT INTO lends (id, book_id, customer_id, lend_date) VALUES (?, ?, ?, ?)\",\n                [(1, 10, 5, \"2025-03-20\"), (2, 20, 5, \"2025-01-01\"),\n                 (3, 10, 6, \"2025-02-01\"), (4, 10, 5, \"2025-04-01\"),\n                 (5, 10, 7, \"2025-04-01\")],\n            )\n\n    def test_all_lends_for_specific_book_in_date_order(self):\n        self.assertEqual(answer.get_lends(self.connection, 10), [\n            (\"David\", \"2025-02-01\"),\n            (\"Clara\", \"2025-03-20\"),\n            (\"Clara\", \"2025-04-01\"),\n            (\"Clara\", \"2025-04-01\"),\n        ])\n\n    def test_customer_can_borrow_multiple_books(self):\n        self.assertEqual(answer.get_lends(self.connection, 20),\n                         [(\"Clara\", \"2025-01-01\")])\n\n    def test_book_without_lends(self):\n        self.assertEqual(answer.get_lends(self.connection, 30), [])\n\n    def test_unknown_book(self):\n        self.assertEqual(answer.get_lends(self.connection, 999), [])\n\n    def test_foreign_keys_reject_unknown_book_or_customer(self):\n        for book_id, customer_id in [(999, 5), (10, 999)]:\n            with self.subTest(book_id=book_id, customer_id=customer_id):\n                with self.assertRaises(sqlite3.IntegrityError):\n                    self.connection.execute(\n                        \"INSERT INTO lends (book_id, customer_id, lend_date) VALUES (?, ?, ?)\",\n                        (book_id, customer_id, \"2025-05-01\"),\n                    )\n\n\n", "indication": "\"\"\"Kleine Bibliotheksverwaltung mit SQLite und einer n:m-Beziehung.\"\"\"\n\nimport sqlite3\n\n\ndef create_database() -> sqlite3.Connection:\n    \"\"\"Erstelle eine leere Datenbank im Arbeitsspeicher.\"\"\"\n    connection = sqlite3.connect(\":memory:\")\n    connection.execute(\"PRAGMA foreign_keys = ON\")\n    connection.executescript(\"\"\"\n        CREATE TABLE books (\n            id INTEGER PRIMARY KEY,\n            title TEXT NOT NULL\n        );\n        CREATE TABLE customers (\n            id INTEGER PRIMARY KEY,\n            name TEXT NOT NULL\n        );\n        CREATE TABLE lends (\n            id INTEGER PRIMARY KEY,\n            book_id INTEGER NOT NULL REFERENCES books(id),\n            customer_id INTEGER NOT NULL REFERENCES customers(id),\n            lend_date TEXT NOT NULL\n        );\n    \"\"\")\n    return connection\n\n\ndef get_lends(connection: sqlite3.Connection, book_id: int) -> list[tuple[str, str]]:\n    \"\"\"Ergaenze hier deine SQL-Abfrage.\"\"\"\n    pass\n\n\nif __name__ == \"__main__\":\n    connection = create_database()\n    try:\n        with connection:\n            connection.executemany(\n                \"INSERT INTO books (id, title) VALUES (?, ?)\",\n                [(1, \"Python lernen\"), (2, \"Roboter bauen\")],\n            )\n            connection.executemany(\n                \"INSERT INTO customers (id, name) VALUES (?, ?)\",\n                [(1, \"Anna\"), (2, \"Ben\")],\n            )\n            connection.executemany(\n                \"INSERT INTO lends (book_id, customer_id, lend_date) VALUES (?, ?, ?)\",\n                [(1, 1, \"2026-09-01\"), (1, 2, \"2026-09-15\"),\n                 (2, 1, \"2026-09-20\"), (1, 1, \"2026-10-01\")],\n            )\n        print(get_lends(connection, 1))\n    finally:\n        connection.close()\n", "files": {}, "evalConfig": {"runAtTest": true, "lintAtTest": true}, "linterConfig": "--disable=C0114,C0115,C0116", "linterWeight": 0.0, "cpuTime": 5}"]]]></plugins>
+   <sendToParser>false</sendToParser>
+   <preCalc>false</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="0" format="">   <inhalt><![CDATA[<h3>Bibliotheksverwaltung mit SQLite</h3>
+<p>Die vorgegebene Datenbank enthaelt drei Tabellen:</p>
+<ul><li><code>books(id, title)</code>: Buecher</li>
+<li><code>customers(id, name)</code>: Kunden</li>
+<li><code>lends(id, book_id, customer_id, lend_date)</code>: Ausleihen</li></ul>
+<p>Ein Kunde kann mehrere Buecher ausleihen; ein Buch kann im Laufe der Zeit
+von mehreren Kunden ausgeliehen werden. <code>lends</code> bildet diese
+n:m-Beziehung ab. Die beiden Fremdschluessel verweisen auf die jeweiligen IDs.</p>
+<p>Implementiere <code>get_lends(connection, book_id)</code> mit einer SQL-Abfrage:
+Wer hat das Buch mit dieser ID wann ausgeliehen?</p>
+<ul><li>Gib eine Liste von Tupeln <code>(kundenname, ausleihdatum)</code> zurueck.</li>
+<li>Verbinde die Tabellen mit JOIN und filtere nach der Buch-ID.</li>
+<li>Verwende einen <code>?</code>-Platzhalter und <code>(book_id,)</code> als Parameter.</li>
+<li>Sortiere nach Ausleihdatum aufsteigend, bei gleichem Datum nach Ausleih-ID.</li>
+<li>Behalte wiederholte Ausleihen bei; ohne Treffer ist das Ergebnis <code>[]</code>.</li></ul>
+<p>Die Daten im Startercode liefern fuer Buch 1:</p>
+<pre>[("Anna", "2026-09-01"), ("Ben", "2026-09-15"), ("Anna", "2026-10-01")]</pre>
+<p>Die Datumswerte sind Text im Format YYYY-MM-DD. Ergaenze nur
+<code>get_lends</code>. Die Datenbank wird im Arbeitsspeicher erstellt.
+Die Funktion gibt die Liste zurueck; das Demonstrationsprogramm gibt sie aus.</p>
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="0" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>0</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>0</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   
+</question>
+</letto>

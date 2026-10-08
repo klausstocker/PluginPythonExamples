@@ -12,6 +12,12 @@ and conditions. Introduce lists, tuples, and file access as each task needs them
 4. [Minimal distance](minimal_distance/README.md): compare pairs of points using nested loops.
 5. [Power from CSV](power_from_csv/README.md): read measurements from a file and calculate average power.
 
+[Filter people](filter_people/README.md) is an additional exercise on tuple
+unpacking, age comparisons, and filtering with `or`; print matching names to stdout.
+
+[SQLite library](sqlite_library/README.md) introduces a many-to-many relationship
+with books, customers, and lends; query who borrowed a book and on which dates.
+
 Each example documents its input format, assumptions, and required concepts.
 Keep any accompanying data files with the example when copying it.
 
