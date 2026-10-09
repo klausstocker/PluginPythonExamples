@@ -2,6 +2,10 @@
 
 This repository contains teacher-facing Python examples for a Python plugin workflow. Each example is intentionally small, self-contained, and easy to copy or adapt for a classroom activity.
 
+## Installation
+
+To install the plugin on your server copy the docker-service-pluginpython.yml to lettos "/opt/letto/docker/compose/letto" and the pluginpython.conf to lettos proxy config folder located in "/opt/letto/docker/proxy". Then start the plugin from "/opt/letto/docker/compose/letto" with "docker compose -f docker-service-pluginpython.yml -d".
+
 ## Repository layout
 
 ```text
