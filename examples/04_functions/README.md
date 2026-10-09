@@ -1,6 +1,6 @@
 # 4. Funktionen
 
-Neun selbstständige Beispiele passend zum Kapitel Funktionen im Informatikskript.
+Selbstständige Beispiele passend zum Kapitel Funktionen im Informatikskript.
 Die Reihenfolge führt von `def` und `return` über Type Hints und Standardwerte
 zum Kombinieren von Funktionen und zur trigonometrischen Anwendung.
 Die grundlegenden Aufrufe verwenden Positionsargumente; das Trigonometrie-Beispiel
@@ -17,6 +17,8 @@ ergänzt benannte Argumente als optionale Vertiefung.
 7. [Pascalsches Dreieck ausgeben](pascal_triangle/README.md): Eine Funktion mit Zeilenanzahl als Parameter und Rückgabetyp `str` schreiben; den zurückgegebenen String auf stdout ausgeben.
 8. [Primzahlen in einem Bereich finden](prime_numbers/README.md): Eine Hilfsfunktion zum Prüfen einer Zahl verwenden und alle Primzahlen im Bereich als Liste zurückgeben.
 9. [Die 16 logischen Funktionen mit zwei Eingängen](truth_table_two_inputs/README.md): Wahrheitstabellen als Binärzahlen nummerieren und alle Varianten mit `and`, `or` und `not` umsetzen.
+10. [Datum des Ostersonntags berechnen](easter_sunday/README.md): Eine Osterformel als Funktion umsetzen und Datumswerte, Sonderfälle und Eingabegrenzen prüfen.
+11. [Ein Bit in einem Byte setzen oder löschen](set_byte_bit/README.md): Bitmasken verwenden, ein ausgewähltes Bit verändern und alle übrigen Bits erhalten.
 
 Im nächsten Kapitel folgt [Bestellung mit Dataclasses prüfen](../05_dataclasses/order_dataclasses/README.md).
 

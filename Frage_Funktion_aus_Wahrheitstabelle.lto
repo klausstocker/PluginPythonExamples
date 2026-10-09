@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>3569</id>
+   <idUser>540</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Funktion aus Wahrheitstabelle]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima><![CDATA[bits4(n) := makelist(mod(floor(n / 2^(3-i)), 2), i, 0, 3)$
+b: bits4(i);
+
+]]></maxima>
+   <maximaAngabe><![CDATA[;::;b:[mod(floor(i/8),2),mod(floor(i/4),2),mod(floor(i/2),2),mod(i,2)];]]></maximaAngabe>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"i","value":7,"unit":""}],"validation":"import unittest\nimport dataset\nimport answer\n\n\ndef correct(variante: int, a: bool, b: bool) -> bool:\n    \"\"\"Lies das Ausgangsbit in der Zeilenfolge 00, 01, 10, 11.\"\"\"\n    ausgangsbits = format(variante, \"04b\")\n    zeilenindex = 2 * int(a) + int(b)\n    return ausgangsbits[zeilenindex] == \"1\"\n\n\nclass Checker(unittest.TestCase):\n    def test_all_variants_and_inputs(self):\n        variante = int(dataset.i.value)\n        for a in [False, True]:\n            for b in [False, True]:\n                self.assertIs(answer.logische_funktion(a, b), correct(variante, a, b))\n","indication":"def logische_funktion(a: bool, b: bool) -> bool:\n    return a or b\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=C0114,C0115,C0116","linterWeight":0.5,"cpuTime":5}"]]]></plugins>
+   <sendToParser>false</sendToParser>
+   <preCalc>false</preCalc>
+   <streng>false</streng>
+   <licenceKey />
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate></creationDate>
+   <lastChange></lastChange>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="5550" format="">   <inhalt><![CDATA[<p>Erstelle eine Funktion, die folgende Wahrheitstabelle implementiert.</p>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+	<tbody>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+			<td>y</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>0</td>
+			<td>{=vget(b, 0)}</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>1</td>
+			<td>{=vget(b, 1)}</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>0</td>
+			<td>{=vget(b, 2)}</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>1</td>
+			<td>{=vget(b, 3)}</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="5551" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="5552" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="5553" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="5554" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="5555" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>4223</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>5240</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   <dataset>
+      <id>3809</id>
+      <status><![CDATA[shared]]></status>
+      <name><![CDATA[i]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[0]]></minimum>
+      <maximum><![CDATA[15]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I0-15 ]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[7;8;11;14;9;15;14;6;3;4;1;8;9;5;6;9;3;1;2;3;6;12;7;1;2;12;15;14;10;7;8;7;6;11;14;1;11;0;0;15]]></items>
+   </dataset>
+</question>
+</letto>
