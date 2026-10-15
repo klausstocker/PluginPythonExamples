@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>42287990</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Leistungstabelle mit einer Funktion]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"spannung","value":12,"unit":""},{"name":"start","value":2,"unit":""},{"name":"stopp","value":10,"unit":""},{"name":"schrittweite","value":2,"unit":""}],"validation":"\"\"\"Die Ausgabe fuer die Werte aus dataset.py pruefen.\"\"\"\n\nimport unittest\n\nimport dataset\nfrom helpers import RedirectedStdout\n\n\ndef correct_implementation():\n    \"\"\"Für jeden Stromwert die Leistungsfunktion aufrufen.\"\"\"\n\n    def leistung_watt(spannung: float, strom: float) -> float:\n        return spannung * strom\n    spannung = float(dataset.spannung.value)\n    start = int(dataset.start.value)\n    stopp = int(dataset.stopp.value)\n    schrittweite = int(dataset.schrittweite.value)\n    for strom in range(start, stopp, schrittweite):\n        leistung = leistung_watt(spannung, strom)\n        print(f'I = {strom} A: {leistung:.1f} W')\n\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"\"\"\"Für jeden Stromwert die Leistungsfunktion aufrufen.\"\"\"\n\ndef leistung_watt(spannung: float, strom: float) -> float:\n    return 0.0\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="42391554" format="">   <inhalt><![CDATA[<h3>Leistungstabelle mit einer Funktion</h3>
+
+<h4>Aufgabe</h4>
+
+<p>Definiere eine Funktion leistung_watt(spannung: float, strom: float) -&gt; float. Die Funktion gibt spannung * strom zur&uuml;ck und erzeugt keine Ausgabe.&nbsp;</p>
+
+<p>Verwende die Funktion um Leistungswerte Spannung = {spannung} f&uuml;r Stromwerte von {start} bis {stopp} mit einer Schrittweite von {schrittweite}.</p>
+
+<pre>
+I = 0 A: 0.0 W
+I = 2 A: 24.0 W
+I = 4 A: 48.0 W
+I = 6 A: 72.0 W</pre>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="42391555" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="42391556" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="42391557" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="42391558" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="42391559" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>42342737</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>42385274</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   <dataset>
+      <id>42327142</id>
+      <status/>
+      <name><![CDATA[spannung]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[12]]></minimum>
+      <maximum><![CDATA[12]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I12-12]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12]]></items>
+   </dataset>
+   <dataset>
+      <id>42327143</id>
+      <status/>
+      <name><![CDATA[start]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[0]]></minimum>
+      <maximum><![CDATA[4]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I0-4]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[2;0;1;3;0;3;3;2;4;0;0;4;4;1;2;4;2;0;3;3;1;0;0;3;2;4;1;4;3;0;3;0;3;0;4;1;1;4;1;2]]></items>
+   </dataset>
+   <dataset>
+      <id>42327144</id>
+      <status/>
+      <name><![CDATA[stopp]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[8]]></minimum>
+      <maximum><![CDATA[12]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I8-12]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[10;12;12;9;11;9;8;8;8;8;9;9;10;10;9;8;10;9;11;10;10;10;8;11;11;10;9;12;10;10;9;11;8;8;9;10;10;8;9;11]]></items>
+   </dataset>
+   <dataset>
+      <id>42327145</id>
+      <status/>
+      <name><![CDATA[schrittweite]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[2]]></minimum>
+      <maximum><![CDATA[4]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I2-4]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[2;2;3;4;4;3;3;2;2;4;2;4;2;3;2;2;4;3;2;4;3;2;2;4;3;4;2;4;2;3;2;4;3;3;2;2;2;3;2;3]]></items>
+   </dataset>
+</question>
+</letto>

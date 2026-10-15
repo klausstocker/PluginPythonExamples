@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>42287991</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Positionen eines Roboterschlittens]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"anzahl","value":4,"unit":""},{"name":"schrittweite","value":2.9,"unit":""}],"validation":"\"\"\"Die Ausgabe fuer die Werte aus dataset.py pruefen.\"\"\"\n\nimport unittest\n\nimport dataset\nfrom helpers import RedirectedStdout\n\n\ndef correct_implementation():\n    \"\"\"Positionen nach gleich großen Verfahrwegen berechnen.\"\"\"\n    anzahl = int(dataset.anzahl.value)\n    schrittweite = float(dataset.schrittweite.value)\n    for schritt in range(1, anzahl + 1):\n        position = schritt * schrittweite\n        print(f'Schritt {schritt}: {position:.1f} mm')\n\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"# Ergaenze die for-Schleife und die Ausgabe der Positionen.\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="42391560" format="">   <inhalt><![CDATA[<h3>Positionen eines Roboterschlittens</h3>
+
+<h4>Aufgabe</h4>
+
+<p>Ein Roboterschlitten startet bei 0 mm und bewegt sich {anzahl} Schritte mit einer Schrittweite von {schrittweite} mm. Verwende eine for-Schleife mit range(), um die Position nach jedem Schritt zu berechnen und auszugeben. Die Schrittnummern beginnen bei 1. Gib die Startposition nicht aus und definiere keine eigene Funktion.</p>
+
+<p>Verwende pro Zeile das Format Schritt N: X.X mm, also eine Nachkommastelle f&uuml;r die Position.</p>
+
+<p>Beispiel f&uuml;r 4 Schritte mit einer Schrittweite von 2 mm:</p>
+
+<pre>
+Schritt 1: 2.0 mm
+Schritt 2: 4.0 mm
+Schritt 3: 6.0 mm
+Schritt 4: 8.0 mm</pre>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="42391561" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="42391562" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="42391563" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="42391564" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="42391565" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>42342738</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>42385275</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   <dataset>
+      <id>42327146</id>
+      <status/>
+      <name><![CDATA[anzahl]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[3]]></minimum>
+      <maximum><![CDATA[7]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I3-7]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[4;3;7;3;3;5;4;4;4;3;7;3;7;6;3;3;3;4;4;7;7;3;7;4;7;6;4;6;7;5;3;4;6;5;5;4;4;5;3;3]]></items>
+   </dataset>
+   <dataset>
+      <id>42327147</id>
+      <status/>
+      <name><![CDATA[schrittweite]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[2.1]]></minimum>
+      <maximum><![CDATA[6.9]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[F2:2-7]]></zahlenbereich>
+      <ziffern>2</ziffern>
+      <einheit/>
+      <items><![CDATA[2.9;5;3;4.1;2.7;5.1;3.6;3.8;4.5;4.5;4.1;4.7;6.6;6.6;2.1;5.7;2.6;4.7;6;3;6.1;6;4.3;3.7;2.8;5;3.8;5.2;5;6.9;4.8;3.6;6.9;5.7;3.8;3.4;5.3;3.5;3.4;6]]></items>
+   </dataset>
+</question>
+</letto>

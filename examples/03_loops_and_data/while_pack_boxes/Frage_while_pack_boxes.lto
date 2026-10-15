@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>0</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Vollständige Kartons packen]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"bestand","value":23,"unit":""},{"name":"kartongroesse","value":5,"unit":""}],"validation":"\"\"\"Die Ausgabe für die Werte aus dataset.py prüfen.\"\"\"\n\nimport unittest\n\nimport dataset\nfrom helpers import RedirectedStdout\n\n\ndef correct_implementation():\n    \"\"\"Vollständige Kartons durch wiederholtes Abziehen zählen.\"\"\"\n    bestand = int(dataset.bestand.value)\n    kartongroesse = int(dataset.kartongroesse.value)\n    kartons = 0\n    while bestand >= kartongroesse:\n        bestand = bestand - kartongroesse\n        kartons = kartons + 1\n    print(f'Kartons: {kartons}')\n    print(f'Rest: {bestand}')\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"# Packe mit einer while-Schleife vollständige Kartons und bestimme den Rest.\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="0" format="">   <inhalt><![CDATA[<h3>Vollständige Kartons packen</h3>
+
+<h4>Aufgabe</h4>
+
+<p>Es sind {bestand} Teile vorhanden. In einen Karton passen {kartongroesse} Teile. Packe mit einer while-Schleife so lange vollständige Kartons, wie genügend Teile vorhanden sind. Gib danach zwei Zeilen aus: <code>Kartons: N</code> und <code>Rest: N</code>. Verwende die Schleife statt <code>//</code> oder <code>%</code> und definiere keine eigene Funktion.</p>
+
+<p>Beispiel für 23 Teile und 5 Teile je Karton:</p>
+
+<pre>Kartons: 4
+Rest: 3</pre>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="0" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>0</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>0</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   
+   
+<dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[bestand]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[0]]></minimum>
+      <maximum><![CDATA[50]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I0-50]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[23;0;6;3;17;50;0;4;26;19;6;9;4;8;30;22;48;37;18;6;11;48;46;48;48;10;40;22;20;17;2;3;1;5;36;14;1;38;26;3]]></items>
+   </dataset><dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[kartongroesse]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[1]]></minimum>
+      <maximum><![CDATA[10]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I1-10]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[5;4;6;4;4;1;10;5;9;10;8;8;5;1;5;10;10;5;5;7;7;8;10;1;8;9;10;6;6;3;10;10;2;7;5;2;5;10;1;6]]></items>
+   </dataset></question>
+</letto>

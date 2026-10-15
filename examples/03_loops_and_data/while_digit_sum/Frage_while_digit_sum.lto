@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>0</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Quersumme einer Teilenummer]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"teilenummer","value":2047,"unit":""}],"validation":"\"\"\"Die Ausgabe für die Werte aus dataset.py prüfen.\"\"\"\n\nimport unittest\n\nimport dataset\nfrom helpers import RedirectedStdout\n\n\ndef correct_implementation():\n    \"\"\"Die Ziffern einer Teilenummer von rechts nach links addieren.\"\"\"\n    teilenummer = int(dataset.teilenummer.value)\n    rest = teilenummer\n    quersumme = 0\n    while rest > 0:\n        letzte_ziffer = rest % 10\n        quersumme = quersumme + letzte_ziffer\n        rest = rest // 10\n    print(f'Quersumme: {quersumme}')\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"# Berechne die Quersumme mit einer while-Schleife, % und //.\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="0" format="">   <inhalt><![CDATA[<h3>Quersumme einer Teilenummer</h3>
+
+<h4>Aufgabe</h4>
+
+<p>Berechne die Quersumme der Teilenummer {teilenummer} mit einer while-Schleife. Addiere in jedem Durchlauf die letzte Ziffer zur Summe und entferne diese Ziffer durch ganzzahlige Division. Gib <code>Quersumme: N</code> aus. Verwende keine Zeichenkettenverarbeitung und definiere keine eigene Funktion. Für die Teilenummer 0 ist das Ergebnis 0.</p>
+
+<p>Beispiel für die Teilenummer 2047:</p>
+
+<pre>Quersumme: 13</pre>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="0" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>0</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>0</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   
+   
+<dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[teilenummer]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[0]]></minimum>
+      <maximum><![CDATA[99999]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I0-99999]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[2047;0;7;10020;5831;99999;7002;39364;51590;9273;74845;95141;11339;81964;52515;14188;17010;39372;78797;9470;32415;65171;56611;9908;75647;46971;89244;63202;89666;13867;38985;28175;18209;31761;54889;98680;55926;13509;64285;36963]]></items>
+   </dataset></question>
+</letto>

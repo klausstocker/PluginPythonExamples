@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>0</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Abkühlung mit einer Funktion simulieren]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"temperatur","value":100.0,"unit":""},{"name":"umgebung","value":20.0,"unit":""},{"name":"ziel","value":30.0,"unit":""}],"validation":"\"\"\"Die Ausgabe für die Werte aus dataset.py prüfen.\"\"\"\n\nimport unittest\n\nimport dataset\nfrom helpers import RedirectedStdout\n\n\ndef correct_implementation():\n    \"\"\"Mit einer Zustandsfunktion eine Zieltemperatur erreichen.\"\"\"\n\n    def abkuehlen(temperatur: float, umgebung: float) -> float:\n        return (temperatur + umgebung) / 2\n    temperatur = float(dataset.temperatur.value)\n    umgebung = float(dataset.umgebung.value)\n    ziel = float(dataset.ziel.value)\n    schritte = 0\n    while temperatur > ziel:\n        temperatur = abkuehlen(temperatur, umgebung)\n        schritte = schritte + 1\n    print(f'Schritte: {schritte}')\n    print(f'Temperatur: {temperatur:.2f} °C')\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"def abkuehlen(temperatur: float, umgebung: float) -> float:\n    return 0.0\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="0" format="">   <inhalt><![CDATA[<h3>Abkühlung mit einer Funktion simulieren</h3>
+
+<h4>Aufgabe</h4>
+
+<p>Ein Körper hat anfangs {temperatur} °C, die Umgebung hat {umgebung} °C. Simuliere die Abkühlung, bis die Temperatur höchstens {ziel} °C beträgt. Definiere <code>abkuehlen(temperatur: float, umgebung: float) -&gt; float</code>, die <code>(temperatur + umgebung) / 2</code> zurückgibt. Rufe die Funktion innerhalb einer while-Schleife mit der jeweils aktuellen Temperatur auf und übernimm den Rückgabewert. Zähle die Schritte. Gib zwei Zeilen aus: <code>Schritte: N</code> und <code>Temperatur: X.XX °C</code>, mit zwei Nachkommastellen für die Temperatur.</p>
+
+<p>Beispiel für 100.0 °C Anfangstemperatur, 20.0 °C Umgebungstemperatur und 30.0 °C Zieltemperatur:</p>
+
+<pre>Schritte: 3
+Temperatur: 30.00 °C</pre>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="0" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>0</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>0</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   
+   
+<dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[temperatur]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[20]]></minimum>
+      <maximum><![CDATA[100]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I20-100]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[100;80;60;30;25;20;100;42;84;23;64;28;28;55;67;74;27;99;39;67;66;46;57;43;100;37;45;80;45;59;47;66;64;46;73;43;100;84;48;90]]></items>
+   </dataset><dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[umgebung]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[10]]></minimum>
+      <maximum><![CDATA[20]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I10-20]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[20;20;20;20;20;20;10;11;14;12;16;19;18;13;13;20;11;13;12;16;13;18;16;17;18;17;15;10;16;18;20;16;18;15;12;12;10;11;20;12]]></items>
+   </dataset><dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[ziel]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[25]]></minimum>
+      <maximum><![CDATA[40]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I25-40]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[30;29;30;30;30;40;25;32;36;29;35;28;30;29;25;35;30;34;31;38;31;40;26;29;25;32;25;32;39;36;30;36;40;25;40;36;40;32;37;34]]></items>
+   </dataset></question>
+</letto>

@@ -162,6 +162,11 @@ python -m unittest discover -s . -p "test_all_examples.py"
 
 ## Create a new example from the template
 
+For LeTTo Python questions and `.lto`/XML exports, follow the repository's
+[LeTTo question skill](.agents/skills/letto-python-question/SKILL.md).
+It contains the dataset and grading conventions, a complete XML template, and
+a standard-library export validator. The binding rules are in [agents.md](agents.md).
+
 1. Copy the `template/` folder into the appropriate chapter under `examples/` and rename it for your task. Add a link to the chapter README.
 2. Edit the copied `README.md` to describe the learning goal, task, files, and test command.
 3. Replace the placeholder function in `answer.py` with your reference implementation.

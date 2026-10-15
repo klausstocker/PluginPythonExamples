@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>0</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Papierdicke mit einer Funktion verdoppeln]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"dicke","value":0.1,"unit":""},{"name":"ziel","value":1.0,"unit":""}],"validation":"\"\"\"Die Ausgabe für die Werte aus dataset.py prüfen.\"\"\"\n\nimport unittest\n\nimport dataset\nfrom helpers import RedirectedStdout\n\n\ndef correct_implementation():\n    \"\"\"Eine Dicke durch wiederholte Funktionsaufrufe verdoppeln.\"\"\"\n\n    def doppelte_dicke(dicke: float) -> float:\n        return dicke * 2\n    dicke = float(dataset.dicke.value)\n    ziel = float(dataset.ziel.value)\n    faltungen = 0\n    while dicke < ziel:\n        dicke = doppelte_dicke(dicke)\n        faltungen = faltungen + 1\n    print(f'Faltungen: {faltungen}')\n    print(f'Dicke: {dicke:.3f} mm')\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"def doppelte_dicke(dicke: float) -> float:\n    return 0.0\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="0" format="">   <inhalt><![CDATA[<h3>Papierdicke mit einer Funktion verdoppeln</h3>
+
+<h4>Aufgabe</h4>
+
+<p>Ein Blatt Papier ist anfangs {dicke} mm dick. Berechne mit einer while-Schleife, wie oft es im vereinfachten Modell gefaltet werden muss, bis die Dicke mindestens {ziel} mm beträgt. Definiere <code>doppelte_dicke(dicke: float) -&gt; float</code>, die <code>dicke * 2</code> zurückgibt, und rufe sie innerhalb der Schleife mit der aktuellen Dicke auf. Übernimm jeweils den Rückgabewert und zähle die Faltungen. Gib zwei Zeilen aus: <code>Faltungen: N</code> und <code>Dicke: X.XXX mm</code>, mit drei Nachkommastellen für die Dicke. Das Ziel darf überschritten werden. Verwende keine Logarithmusformel.</p>
+
+<p>Beispiel für 0.1 mm Anfangsdicke und 1.0 mm Zieldicke:</p>
+
+<pre>Faltungen: 4
+Dicke: 1.600 mm</pre>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="0" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>0</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>0</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   
+   
+<dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[dicke]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[0.1]]></minimum>
+      <maximum><![CDATA[0.1]]></maximum>
+      <decimals><![CDATA[1]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich/>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1;0.1]]></items>
+   </dataset><dataset>
+      <id>0</id>
+      <status><![CDATA[private]]></status>
+      <name><![CDATA[ziel]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[1]]></minimum>
+      <maximum><![CDATA[8]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I1-8]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[1;2;4;8;3;8;2;8;3;2;4;6;7;6;2;4;5;2;1;3;6;5;7;2;7;6;6;5;5;1;4;3;2;4;1;7;7;4;4;6]]></items>
+   </dataset></question>
+</letto>

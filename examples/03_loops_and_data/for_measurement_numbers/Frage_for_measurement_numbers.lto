@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>42287989</id>
+   <idUser>540</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Messung nummerieren]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"a","value":4,"unit":""}],"validation":"import unittest\nimport dataset  # pylint: disable=import-error\n\nfrom helpers import RedirectedStdout  # pylint: disable=import-error\n\n\ndef correct_implementation():\n    \"\"\"Eine vorgegebene Anzahl von Messungen nummerieren.\"\"\"\n    anzahl = int(dataset.a.value)\n    for index in range(anzahl):\n        print(f\"Messung {index + 1}\")\n    print(\"Fertig.\")\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer  # pylint: disable=import-error\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"# Preview code\n\nprint(3)\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="42391548" format="">   <inhalt><![CDATA[<div>
+<div><span style="color:#000000">Gib mit </span><span style="color:#800000">`for ... in range(anzahl)`</span><span style="color:#000000"> f&uuml;r jede Messung eine Zeile </span><span style="color:#800000">`Messung N`</span><span style="color:#000000"> aus. Die sichtbare Nummerierung beginnt bei 1 und geht bis inkl. {a}. Gib danach einmal </span><span style="color:#800000">`Fertig.`</span><span style="color:#000000"> aus. Definiere keine eigene Funktion.</span></div>
+</div>
+
+<p>[Q0]&nbsp;</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="42391549" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="42391550" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="42391551" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="42391552" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="42391553" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>42342736</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>42385273</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   <dataset>
+      <id>42327140</id>
+      <status><![CDATA[shared]]></status>
+      <name><![CDATA[a]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[3]]></minimum>
+      <maximum><![CDATA[7]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I3-7]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[4;7;6;5;4;6;5;6;5;3;4;7;4;5;3;5;3;6;5;3;5;6;4;5;4;5;4;3;6;4;7;6;4;6;4;3;7;6;7;4]]></items>
+   </dataset>
+</question>
+</letto>

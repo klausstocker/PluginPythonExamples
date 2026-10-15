@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letto mode="101" databaseinfo="sql">
+<question type="MoodleClozeCalc">
+   <id>0</id>
+   <idUser>0</idUser>
+   <questionType>22</questionType>
+   <single>0</single>
+   <name><![CDATA[Temperaturtabelle mit einer Funktion]]></name>
+   <punkte>1.0</punkte>
+   <penalty/>
+   <hidden>0</hidden>
+   <tag/>
+   <noAutoCorrect>0</noAutoCorrect>
+   <usecase>0</usecase>
+   <synchronize>0</synchronize>
+   <shuffleAnswers>1</shuffleAnswers>
+   <answerNumbering><![CDATA[abc]]></answerNumbering>
+   <unitGradingType>2</unitGradingType>
+   <unitPenalty>0.1</unitPenalty>
+   <showUnits>0</showUnits>
+   <unitsLeft>0</unitsLeft>
+   <maxima/>
+   <responseFormat><![CDATA[editor]]></responseFormat>
+   <responseFieldLines>10</responseFieldLines>
+   <attachments>3</attachments>
+   <md5/>
+   <units/>
+   <plugins><![CDATA[[PI Plugin1 Python "{"datasetVariables":[{"name":"start","value":0,"unit":""},{"name":"stopp","value":31,"unit":""},{"name":"schrittweite","value":10,"unit":""}],"validation":"\"\"\"Die Ausgabe fuer die Werte aus dataset.py pruefen.\"\"\"\n\nimport unittest\n\nimport dataset\nfrom helpers import RedirectedStdout\n\n\ndef correct_implementation():\n    \"\"\"Eine Umrechnungsfunktion für alle Tabellenzeilen verwenden.\"\"\"\n\n    def fahrenheit(celsius: float) -> float:\n        return celsius * 9 / 5 + 32\n    start = int(dataset.start.value)\n    stopp = int(dataset.stopp.value)\n    schrittweite = int(dataset.schrittweite.value)\n    for celsius in range(start, stopp, schrittweite):\n        temperatur_fahrenheit = fahrenheit(celsius)\n        print(f'{celsius} °C = {temperatur_fahrenheit:.1f} °F')\n\n\n\nclass Checker(unittest.TestCase):  # do not rename; plugin checks expect this name\n    def test_output(self):\n        with RedirectedStdout() as student_out:\n            import answer\n        with RedirectedStdout() as expected_out:\n            correct_implementation()\n        self.assertEqual(str(student_out), str(expected_out))\n","indication":"def fahrenheit(celsius: float) -> float:\n    return 0.0\n","files":{},"evalConfig":{"runAtTest":true,"lintAtTest":true},"linterConfig":"--disable=all --enable=F,E,W","linterWeight":0.5,"cpuTime":5,"formatterConfig":""}"]]]></plugins>
+   <sendToParser>true</sendToParser>
+   <preCalc>true</preCalc>
+   <streng>false</streng>
+   <licenceKey/>
+   <konstanteMitProzent>true</konstanteMitProzent>
+   <useSymbolicMode>false</useSymbolicMode>
+   <addDocumentsPossible>false</addDocumentsPossible>
+   <info/>
+   <randomDataset>false</randomDataset>
+   <creationDate/>
+   <lastChange/>
+   <security/>
+   <copyright/>
+   <onRamp>false</onRamp>
+   <jsonMap><![CDATA[{}]]></jsonMap>
+   <changeLogMap><![CDATA[{}]]></changeLogMap>
+   <questionCommentMsg/>
+   <questionCommentIcon>PROCESSING</questionCommentIcon>
+   <text art="Questiontext" id="0" format="">   <inhalt><![CDATA[<h3>Temperaturtabelle mit einer Funktion</h3>
+
+<h4>Aufgabe</h4>
+
+<p>Definiere die Funktion <code>fahrenheit(celsius: float) -&gt; float</code>.
+Sie berechnet <code>celsius * 9 / 5 + 32</code>, gibt das Ergebnis zur&uuml;ck
+und erzeugt keine Ausgabe.</p>
+
+<p>Verwende eine for-Schleife mit range(), um Celsiuswerte von {start}
+bis vor {stopp} mit einer Schrittweite von {schrittweite} zu durchlaufen.
+Rufe innerhalb der Schleife f&uuml;r jeden Wert die Funktion fahrenheit auf.
+Die Stoppgrenze ist ausgeschlossen.</p>
+
+<p>Gib pro Zeile <code>N &deg;C = X.X &deg;F</code> aus,
+mit einer Nachkommastelle f&uuml;r den Fahrenheitwert.</p>
+
+<p>Beispiel f&uuml;r start = 0, stopp = 31 und schrittweite = 10:</p>
+
+<pre>0 &deg;C = 32.0 &deg;F
+10 &deg;C = 50.0 &deg;F
+20 &deg;C = 68.0 &deg;F
+30 &deg;C = 86.0 &deg;F</pre>
+
+<p>[Q0]</p>
+]]></inhalt>
+</text>
+   <text art="general feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="partially correct feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="incorrect feedback" id="0" format="">   <inhalt/>
+</text>
+   <text art="grader info" id="0" format="">   <inhalt/>
+</text>
+   <subquestion>
+      <id>0</id>
+      <grade>1.0</grade>
+      <mode>6</mode>
+      <name><![CDATA[Q0]]></name>
+      <maxima/>
+      <plugininfo><![CDATA[Plugin1:]]></plugininfo>
+      <shuffleAnswers>1</shuffleAnswers>
+      <schwierigkeit>0</schwierigkeit>
+      <answer>
+         <id>0</id>
+         <fraction>100.0</fraction>
+         <format><![CDATA[html]]></format>
+         <text/>
+         <feedback/>
+         <tolerance><![CDATA[1%]]></tolerance>
+         <correctAnswerFormat>2</correctAnswerFormat>
+         <correctAnswerLength>5</correctAnswerLength>
+         <maxima/>
+         <answer><![CDATA[""]]></answer>
+         <einheit/>
+      </answer>
+   </subquestion>
+   
+   
+
+   <dataset>
+      <id>0</id>
+      <status/>
+      <name><![CDATA[start]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[0]]></minimum>
+      <maximum><![CDATA[10]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I0-10]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[0;0;10;4;1;8;7;9;2;7;4;9;1;7;6;8;8;3;7;1;0;4;6;0;6;5;8;6;7;8;6;2;0;4;9;9;3;1;7;5]]></items>
+   </dataset>
+   <dataset>
+      <id>0</id>
+      <status/>
+      <name><![CDATA[stopp]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[31]]></minimum>
+      <maximum><![CDATA[51]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I31-51]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[31;31;51;40;35;38;31;37;39;39;32;38;47;36;50;44;33;33;33;51;37;35;48;35;45;45;46;48;38;42;40;37;32;44;34;44;43;32;33;42]]></items>
+   </dataset>
+   <dataset>
+      <id>0</id>
+      <status/>
+      <name><![CDATA[schrittweite]]></name>
+      <type><![CDATA[calculated]]></type>
+      <distribution><![CDATA[uniform]]></distribution>
+      <minimum><![CDATA[5]]></minimum>
+      <maximum><![CDATA[10]]></maximum>
+      <decimals><![CDATA[0]]></decimals>
+      <itemcount>40</itemcount>
+      <zahlenbereich><![CDATA[I5-10]]></zahlenbereich>
+      <ziffern>10</ziffern>
+      <einheit/>
+      <items><![CDATA[10;5;10;8;6;7;8;5;6;6;5;9;7;8;8;7;10;8;5;8;5;10;5;5;10;7;9;8;9;5;10;6;7;5;6;5;5;10;7;6]]></items>
+   </dataset>
+</question>
+</letto>
